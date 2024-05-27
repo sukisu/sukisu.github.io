@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Cycle Club Admin Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header class="mainHeader">
+        <h1>OU Cycle Club Admin Page</h1>
+    </header>
+
+    <section id="mainForms">
+        <h2>Administration Forms</h2>
+        <div class="pageForms">
+            <form id="addRideEvent" action="https://students.open.ac.uk/mct/tt284/reflect/reflect.php" method="post" target="_blank">
+                <a> Ride Event Management</a><br>
+                <label for="rideName">Name of Ride:</label><br>
+                <input type="text" id="rideName" name="rideName" required><br>
+
+                <label for="rideType">Type of Ride:</label><br>
+                <input type="text" id="rideType" name="rideType" required><br>
+
+                <label for="rideDate">Date of Ride:</label><br>
+                <input type="date" id="rideDate" name="rideDate" required><br>
+
+                <label for="rideStart">Start time:</label><br>
+                <input type="time" id="rideStart" name="rideStart" required><br>
+
+                <label for="rideDuration">Duration:</label><br>
+                <input type="number" id="rideDuration" name="rideDuration" min="1" placeholder="mins" required><br>
+
+                <label for="meetingPoint">Meeting point:</label><br>
+                <input type="text" id="meetingPoint" name="meetingPoint" required><br>
+
+                <label for="rideDistance">Distance in km:</label><br>
+                <input type="number" id="rideDistance" name="rideDistance" min="1" required><br>
+
+                <label for="elevation">Elevation in m:</label><br>
+                <input type="number" id="elevation" name="elevation" min="1" required><br>
+
+                <label for="groupSize">Maximum group size:</label><br>
+                <input type="number" id="groupSize" name="groupSize" min="1" required><br>
+
+                <label for="leaderName">Name of leader:</label><br>
+                <input type="text" id="leaderName" name="leaderName" required><br>
+
+                <label for="contactNumber">Contact number:</label><br>
+                <input type="tel" id="contactNumber" name="contactNumber" required><br>
+
+                <label for="altContactNumber">Alternative contact number:</label><br>
+                <input type="tel" id="altContactNumber" name="altContactNumber" required><br>
+
+                <label for="comments">Comments:</label><br>
+                <textarea id="comments" name="comments"></textarea><br>
+
+                <label for="status">Status:</label><br>
+                <select id="status" name="status" required>
+                    <option value="proposed">Proposed</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                </select><br>
+
+                <!-- Hidden field -->
+                <input type="hidden" id="rideIdentifier" name="sessionIdentifier" value="ff53-dd45-dcba9876-9090">
+
+                <input type="submit" value="Add Ride Event">
+                <input type="button" value="Edit Ride Event">
+            </form>
+
+            <form id="addOtherEvent" action="https://students.open.ac.uk/mct/tt284/reflect/reflect.php" method="post" target="_blank">
+                <a> Add Other Event</a><br>
+                <label for="eventName">Name of Event:</label><br>
+                <input type="text" id="eventName" name="eventName"><br>
+
+                <label for="eventType">Type of Event:</label><br>
+                <input type="text" id="eventType" name="eventType"><br>
+
+                <label for="eventDate">Date of Event:</label><br>
+                <input type="date" id="eventDate" name="eventDate"><br>
+
+                <label for="eventStart">Start time:</label><br>
+                <input type="time" id="eventStart" name="startTime"><br>
+
+                <label for="eventDuration">Duration:</label><br>
+                <input type="number" id="eventDuration" name="eventDuration" min="1" placeholder="mins"><br>
+
+                <label for="eventLocation">Location:</label><br>
+                <input type="text" id="eventLocation" name="eventLocation"><br>
+
+                <!-- Hidden field -->
+                <input type="hidden" id="eventIdentifier" name="sessionIdentifier" value="ff53-dd45-dcba9876-9090">
+
+                <input type="submit" value="Add Other Event">
+            </form>
+
+            <form id="membershipEdit" action="https://students.open.ac.uk/mct/tt284/reflect/reflect.php" method="post" target="_blank">
+                <a>Edit Membership Details</a><br>
+                <label for="memberForename">Forename: </label><br>
+                <input type="text" id="memberForename" name="memberForename" required><br>
+
+                <label for="memberSurname">Surname: </label><br>
+                <input type="text" id="memberSurname" name="memberSurname" required><br>
+
+                <label for="memberGender">Gender: </label><br>
+                <select id="memberGender" name="memberGender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select><br>
+
+                <label for="memberDob">Date Of Birth:</label><br>
+                <input type="date" id="memberDob" name="memberDob" required><br>
+
+                <label for="memberEmail">Email:</label><br>
+                <input type="email" id="memberEmail" name="memberEmail"><br>
+
+                <label for="memberPassword">Password:</label><br>
+                <input type="password" id="memberPassword" name="memberPassword" required><br>
+
+                <label for="memberMembership">Membership:</label><br>
+                <select id="memberMembership" name="memberMembership" required>
+                    <option value="standard">Standard</option>
+                    <option value="student">Student</option>
+                    <option value="senior">Senior</option>
+                </select><br>
+
+                <label for="memberPaymentMethod">Payment Method:</label><br>
+                <select id="memberPaymentMethod" name="memberPaymentMethod" required>
+                    <option value="card">Card</option>
+                    <option value="cash">Cash</option>
+                    <option value="paypal">PayPal</option>
+                </select><br>
+
+                <label for="memberAutomaticRenewal">Automatic Renewal:</label><br>
+                <select id="memberAutomaticRenewal" name="memberAutomaticRenewal" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select><br>
+
+                <label for="memberConsent">Email Consent:</label><br>
+                <select id="memberConsent" name="memberConsent" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select><br>
+
+                <label for="memberNumber">Contact number:</label><br>
+                <input type="tel" id="memberNumber" name="memberNumber" required><br>
+
+                <label for="memberAddress">Address Line 1:</label><br>
+                <input type="text" id="memberAddress" name="memberAddress" required><br><br>
+
+                <label for="memberCity">City:</label><br>
+                <input type="text" id="memberCity" name="memberCity" required><br><br>
+
+                <label for="memberState">State/Province:</label><br>
+                <input type="text" id="memberState" name="memberState" required><br><br>
+
+                <label for="memberPostCode">Post Code:</label><br>
+                <input type="text" id="memberPostCode" name="memberPostCode" required><br><br>
+
+                <label for="memberCountry">Country:</label><br>
+                <input type="text" id="memberCountry" name="memberCountry" required><br><br>
+
+                <label for="memberStatus">Status: </label><br>
+                <select id="memberStatus" name="memberStatus" required>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select><br>
+
+                <label for="memberApproval">Approval Status:</label><br>
+                <select id="memberApproval" name="memberApproval" required>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                </select><br>
+
+                <input type="submit" value="Update details">
+            </form>
+
+            <form id="addNewsItem" action="https://students.open.ac.uk/mct/tt284/reflect/reflect.php" method="post" target="_blank">
+                <a> Add News Item</a><br>
+                <label for="adminName">Admin Name:</label><br>
+                <input type="text" id="adminName" name="adminName" required><br>
+
+                <label for="subjectLine">Subject Line:</label><br>
+                <input type="text" id="subjectLine" name="subjectLine" maxlength="5" required><br>
+
+                <label for="newsContent">News Content:</label><br>
+                <textarea id="newsContent" name="newsContent" maxlength="200" required></textarea><br>
+
+                <label for="firstShow">First Showing Date:</label><br>
+                <input type="date" id="firstShow" name="firstShow" required><br>
+
+                <label for="lastShow">Last Showing Date:</label><br>
+                <input type="date" id="lastShow" name="lastShow" required><br>
+
+                <input type="submit" value="Post News Item">
+            </form>
+
+            <form id="addAnnouncement" action="https://students.open.ac.uk/mct/tt284/reflect/reflect.php" method="post" target="_blank">
+                <a> Add Announcement</a><br>
+                <label for="announcementContent">Announcement: </label><br>
+                <textarea id="announcementContent" name="announcementContent" required></textarea><br>
+
+                <label for="subject">Subject (5 words maximum): </label><br>
+                <input type="text" id="subject" name="messageSubject" maxlength="37" required><br>
+
+                <label for="sender">Sender: </label><br>
+                <input type="text" id="sender" name="messageSender" required><br>
+
+                <label for="file">Select an attachment: </label><br>
+                <input type="file" id="file" name="messageFile" required><br>
+
+                <label for="datetime">Date and time to send: </label><br>
+                <input type="datetime-local" id="datetime" name="messageDateTime" required><br>
+
+                <label for="priority">Select the email's priority: </label><br>
+                <select id="priority" name="messagePriority" required>
+                    <option value="high">High</option>
+                    <option value="normal">Normal</option>
+                    <option value="low">Low</option>
+                </select><br>
+
+                <input type="submit" value="Send email">
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>

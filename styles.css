@@ -1,0 +1,126 @@
+.html {
+    font-size: 100%;
+}
+/*HEADER CUSTOMISATION*/
+.mainHeader {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #333;
+}
+.mainHeader h1 {
+    font-family: "Oswald", sans-serif;
+    color: #fff;
+    font-size: 2em; /* changed from 32px */
+    text-align: center;
+}
+/*BODY CUSTOMISATION*/
+body {
+    background-color: #000333;
+}
+/*FORM TITLE CUSTOMISATION*/
+.pageForms form a {
+    display: block;
+    padding: 0.3125rem; /* changed from 5px */
+    margin: 0.0625rem 0; /* changed from 1px */
+    font-weight: bold;
+}
+/*FORM CUSTOMISATION*/
+#mainForms {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+#mainForms h2
+{
+    display: none;
+}
+.pageForms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.pageForms form {
+    box-sizing: border-box;
+    border: 0.0625rem solid #ccc; /* changed from 1px */
+    border-radius: 0.25rem; /* changed from 4px */
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+    flex: 0 1 calc(20% - 0.625rem); /* changed from 10px */
+    margin: 6.25rem auto; /* changed from 100px */
+    padding: 1.25rem; /* changed from 20px */
+    background-color: #F0F0F0;
+    transition: 0.3s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 50%;
+}
+.pageForms form:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3); /* changed from 10px */
+}
+form label {
+    margin-bottom: 0.3125rem; /* changed from 5px */
+}
+form input[type=text],
+form input[type=email],
+form input[type=date],
+form input[type=time],
+form input[type=number],
+form input[type=tel],
+form select,
+form textarea {
+    padding: 0.3125rem; /* changed from 5px */
+    margin-bottom: 0.625rem; /* changed from 10px */
+}
+form input[type=submit] {
+    margin-top: 0.625rem; /* changed from 10px */
+}
+/*BUTTONS CUSTOMISATION*/
+form input[type="submit"] {
+    padding: 0.625rem 1.25rem; /* changed from 10px 20px */
+    margin: 1.25rem 0; /* changed from 20px */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 0.25rem; /* changed from 4px */
+    cursor: pointer;
+    font-family: "Oswald", sans-serif;
+}
+
+form input[type="button"] {
+    padding: 0.625rem 1.25rem; /* changed from 10px 20px */
+    margin: 1.25rem 0; /* changed from 20px */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 0.25rem; /* changed from 4px */
+    cursor: pointer;
+    font-family: "Oswald", sans-serif;
+}
+form input[type="submit"]:hover {
+    color: black;
+}
+form input[type="button"]:hover {
+    color: black;
+}
+/*MEDIA QUERY FOR MOBILE*/
+@media (max-width: 600px) {
+    .mainHeader h1 {
+        font-size: 1.75rem;
+    }
+    #mainForms {
+        display: block;
+        width: 100%;
+    }
+    .pageForms {
+        width: 100%;
+        display: block;
+    }
+    .pageForms form {
+        flex: none;
+        width: 90%;
+        height: auto;
+    }
+}
