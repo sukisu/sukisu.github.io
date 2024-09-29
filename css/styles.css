@@ -56,7 +56,56 @@
     border-right: 1px solid #ddd;
 }
 
-.trainDelayRight {
-    flex: 70%;
-    padding: 20px;
+#trainDelayRight {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust gap as needed */
+}
+.date-section {
+    flex: 1 1 30%; /* Change 30% to adjust the width per section */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space at bottom of each section */
+}
+.date-header {
+    font-family: "Comfortaa", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.train-info {
+    font-family: "DM Sans", sans-serif;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-top: 1px solid black;
+    display: grid;           /* Use grid layout */
+    grid-template-columns: 150px 1fr; /* Two columns: one fixed and one flexible */
+    grid-auto-rows: auto;    /* Rows grow based on content */
+    gap: 5px;                /* Space between rows */
+}
+.train-info div {
+    display: contents;       /* Allow children to be direct grid items */
+}
+.train-info p {
+    margin: 10px 0;
+    display: flex;           /* Needed for children flex behavior */
+    border-top: 1px solid #eaeaea; /* Add top border to each row */
+    padding-top: 10px; /* Space between lines */
+}
+/* Optional: Remove top border for the first row */
+.train-info p:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+.train-info strong {
+    grid-column: 1;          /* Place in the first column */
+    align-self: center;      /* Center vertically in the grid cell */
+    white-space: nowrap;     /* Prevent text wrapping */
+}
+.train-info span {
+    grid-column: 2;          /* Place in second column */
+    align-self: center;      /* Center vertically in the grid cell */
 }

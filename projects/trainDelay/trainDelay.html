@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Train Delays - Hitchin & Pancras</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
 <body class="trainDelayBody">
 <header class="trainDelayHeader">
@@ -11,7 +16,73 @@
 </header>
 <div class="trainDelayContainer">
     <div class="trainDelayLeft">Left Content</div>
-    <div class="trainDelayRight">Right Content</div>
+    <div class="trainDelayRight" id="trainDelayRight"></div>
 </div>
+<script>
+    // Fetch the JSON data from the PHP script
+    fetch('/php/database.php')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('trainDelayRight');
+            container.innerHTML = ''; // Clear any existing content
+            const groupedData = {};
+
+            // Group data by trainDate
+            data.forEach(train => {
+                const date = train.trainDate;
+                if (!groupedData[date]) {
+                    groupedData[date] = [];
+                }
+                groupedData[date].push(train);
+            });
+
+            // Loop through each date category
+            for (const date in groupedData) {
+                if (groupedData.hasOwnProperty(date)) {
+                    // Create a section for each date
+                    const dateSection = document.createElement('section');
+                    dateSection.classList.add('date-section');
+                    const dateHeader = document.createElement('h2');
+                    dateHeader.innerText = `Date: ${date}`;
+                    dateHeader.classList.add('date-header');
+                    dateSection.appendChild(dateHeader);
+
+                    // Loop through each train detail for that date
+                    groupedData[date].forEach(train => {
+                        const trainInfo = document.createElement('div');
+                        trainInfo.classList.add('train-info');
+
+                        const fields = [
+                            {label: 'Company', value: train.trainCompanyName},
+                            {label: 'Scheduled Departure', value: `${train.scheduledDep} from ${train.fromLocation}`},
+                            {label: 'Actual Departure', value: train.actualDep},
+                            {label: 'Scheduled Arrival', value: `${train.scheduledArr} at ${train.toLocation}`},
+                            {label: 'Actual Arrival', value: train.actualArrival},
+                            {label: 'Cancellation', value: train.cancellation},
+                            {label: 'Next Available Train', value: train.nextAvailableTrain || 'N/A'},
+                            {label: 'Delay Time', value: `${train.delay_time} minutes`}
+                        ];
+
+                        fields.forEach(field => {
+                            const fieldDiv = document.createElement('div');
+                            const label = document.createElement('strong');
+                            label.innerText = `${field.label}:`;
+                            const value = document.createElement('span');
+                            value.innerText = field.value;
+                            fieldDiv.appendChild(label);
+                            fieldDiv.appendChild(value);
+                            trainInfo.appendChild(fieldDiv);
+                        });
+
+                        dateSection.appendChild(trainInfo);
+                    });
+
+                    // Append the section to the container
+                    container.appendChild(dateSection);
+                }
+            }
+        })
+        .catch(error => console.error('Error fetching train data:', error));
+</script>
 </body>
 </html>
