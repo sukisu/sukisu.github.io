@@ -1,0 +1,62 @@
+/*INDEX PAGE*/
+.indexBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Syne Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+#index_header {
+    margin-bottom: 20px;
+}
+.index_button {
+    display: flex;
+    gap: 20px;
+}
+.index_button a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+}
+/*TRAIN DELAY PAGE*/
+/* Combined .trainDelayBody selector */
+/* Combined .trainDelayBody selector */
+.trainDelayBody {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.trainDelayHeader {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.trainDelayContainer {
+    display: flex;
+    flex: 1;
+}
+
+.trainDelayLeft {
+    flex: 30%;
+    background-color: #e9ecef;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.trainDelayRight {
+    flex: 70%;
+    padding: 20px;
+}
